@@ -3,11 +3,11 @@ let calculatedCurrency= "USD";
 let exchangeRate= 0;
 
 
-  fetch("http://ip-api.com/json/?fields=currency")    //getting currency values for  default settings from really nice free api
+  fetch("https://api.ipregistry.co/?key=w35d9f0h3nzh6r0g")    //getting currency values for  default settings 
     .then(response => response.json())
     .then(result => { 
-      if(document.querySelector("#"+result.currency)) // checking if there is a user currency in the list
-        switch (result.currency){     // applying User Default Base Currency and getting exchange rate for it
+      if(document.querySelector("#"+result.currency.code)) // checking if there is a user currency in the list
+        switch (result.currency.code){     // applying User Default Base Currency and getting exchange rate for it
           case document.querySelector('#from').children[0].innerHTML: 
             chooseMainBaseCurrency(document.querySelector('#from').children[0]); 
             break;
@@ -18,7 +18,7 @@ let exchangeRate= 0;
             chooseMainBaseCurrency(document.querySelector('#from').children[2]); 
             break;
           default:   
-            document.querySelector(".js-base").innerHTML=result.currency;  
+            document.querySelector(".js-base").innerHTML=result.currency.code;  
             chooseMainBaseCurrency(document.querySelector(".js-base"));
         };  
     })
