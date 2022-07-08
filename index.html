@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <script src="scripts/script.js"  defer></script>
+
+   <body>
+      <div class="loader"></div>
+      <div class="calc__box">
+
+
+              <div class="calc__side">
+                  <div class="calc__title">У меня есть</div>
+                  <div class="calc__switcher" id="from">
+                      <div onclick="chooseMainBaseCurrency(this)" class="calc__switcher__item  active">RUB</div>
+                      <div onclick="chooseMainBaseCurrency(this)" class="calc__switcher__item ">USD</div>
+                      <div onclick="chooseMainBaseCurrency(this)" class="calc__switcher__item ">EUR</div>
+                      <div onclick="chooseMainBaseCurrency(this)" class="calc__switcher__item   js-base" data-float="">GBP</div>
+                      <div onclick="chooseBaseExtraCurrency()" class="calc__switcher__item " data-list="">↓</div>
+                  </div>
+
+                  <div class="calc__input_box">
+                      <input oninput="inputChangeBase(this)" id="leftValueInput" class="calc__input_box__input"  value="100" maxlength="10" style="font-size: 44px;">
+                      <div id="leftInputLabel" class="calc__input_box__rate">1 RUR = 0.012 USD</div>
+                  </div>           
+ 
+              </div>
+
+              <div class="calc__center">
+                  <div class="calc__reverse"></div>
+              </div>
+
+              <div class="calc__side">
+                  <div class="calc__title">Хочу приобрести</div>
+
+                  <div class="calc__switcher" id="to">
+                      <div onclick="chooseMainCalculatedCurrency(this)" class="calc__switcher__item ">RUB</div>
+                      <div onclick="chooseMainCalculatedCurrency(this)" class="calc__switcher__item  active">USD</div>
+                      <div onclick="chooseMainCalculatedCurrency(this)" class="calc__switcher__item ">EUR</div>
+                      <div onclick="chooseMainCalculatedCurrency(this)" class="calc__switcher__item  js-culc" data-float="">GBP</div>
+                      <div onclick="chooseCalculatedExtraCurrency()" class="calc__switcher__item " data-list="">↓</div>
+                  </div>
+
+                  <div class="calc__input_box">
+                      <input  oninput="inputChangeBase(this)" id="rightValueInput" class="calc__input_box__input " data-reverse="true" type="text"  maxlength="10" style="font-size: 44px;">
+                      <div id="rightInputLabel" class="calc__input_box__rate ">1 USD = 83.125 RUB</div>
+                  </div>
+
+              </div>
+
+
+
+
+
+
+                
+          <div class="calc__currency js-converter-list" >
+  
+            <div class="calc__currency__column">
+  
+              <div class="calc__currency__row" id="RUB">
+                  <div class="calc__currency__name">Российский рубль</div>
+                  <div class="calc__currency__sign">RUB</div>
+              </div>
+  
+              <div class="calc__currency__row" id="USD">
+                  <div class="calc__currency__name">Доллар США</div>
+                  <div class="calc__currency__sign">USD</div>
+              </div>
+              
+              <div class="calc__currency__row" id="EUR">
+                  <div class="calc__currency__name">ЕВРО</div>
+                  <div class="calc__currency__sign">EUR</div>
+              </div>
+              
+              <div class="calc__currency__row" id="GBP">
+                  <div class="calc__currency__name">Фунт стерлингов</div>
+                  <div class="calc__currency__sign">GBP</div>
+              </div>
+              
+              <div class="calc__currency__row" id="AUD">
+                  <div class="calc__currency__name">Австралийский доллар</div>
+                  <div class="calc__currency__sign">AUD</div>
+              </div>
+              
+              <div class="calc__currency__row" id="AZN">
+                  <div class="calc__currency__name">Азербайджанский манат</div>
+                  <div class="calc__currency__sign">AZN</div>
+              </div>
+              
+              <div class="calc__currency__row" id="AMD">
+                  <div class="calc__currency__name">Армянский драм</div>
+                  <div class="calc__currency__sign">AMD</div>
+              </div>
+              
+              <div class="calc__currency__row" id="BYN">
+                  <div class="calc__currency__name">Белорусский рубль</div>
+                  <div class="calc__currency__sign">BYN</div>
+              </div>
+              
+              <div class="calc__currency__row" id="BGN">
+                  <div class="calc__currency__name">Болгарский лев</div>
+                  <div class="calc__currency__sign">BGN</div>
+              </div>
+              
+              <div class="calc__currency__row" id="BRL">
+                  <div class="calc__currency__name">Бразильский реал</div>
+                  <div class="calc__currency__sign">BRL</div>
+              </div>
+              
+              <div class="calc__currency__row" id="HUF">
+                  <div class="calc__currency__name">Венгерский форинт</div>
+                  <div class="calc__currency__sign">HUF</div>
+              </div>
+  
+            </div>
+            <div class="calc__currency__column  calc__currency__column__center">
+  
+              <div class="calc__currency__row" id="KRW">
+                  <div class="calc__currency__name">Вон Республики Корея</div>
+                  <div class="calc__currency__sign">KRW</div>
+              </div>
+  
+              <div class="calc__currency__row" id="DKK">
+                  <div class="calc__currency__name">Датская крона</div>
+                  <div class="calc__currency__sign">DKK</div>
+              </div>
+              
+              <div class="calc__currency__row" id="INR">
+                  <div class="calc__currency__name">Индийская рупия</div>
+                  <div class="calc__currency__sign">INR</div>
+              </div>
+              
+              <div class="calc__currency__row" id="KZT">
+                  <div class="calc__currency__name">Казахстанский тенге</div>
+                  <div class="calc__currency__sign">KZT</div>
+              </div>
+              
+              <div class="calc__currency__row" id="CAD">
+                  <div class="calc__currency__name">Канадский доллар</div>
+                  <div class="calc__currency__sign">CAD</div>
+              </div>
+              
+              <div class="calc__currency__row" id="KGS">
+                  <div class="calc__currency__name">Киргизский сом</div>
+                  <div class="calc__currency__sign">KGS</div>
+              </div>
+              
+              <div class="calc__currency__row" id="CNY">
+                  <div class="calc__currency__name">Китайский юань</div>
+                  <div class="calc__currency__sign">CNY</div>
+              </div>
+              
+              <div class="calc__currency__row" id="MDL">
+                  <div class="calc__currency__name">Молдавский лей</div>
+                  <div class="calc__currency__sign">MDL</div>
+              </div>
+              
+              <div class="calc__currency__row" id="RON">
+                  <div class="calc__currency__name">Новый румынский лей</div>
+                  <div class="calc__currency__sign">RON</div>
+              </div>
+              
+              <div class="calc__currency__row" id="TMT">
+                  <div class="calc__currency__name">Новый туркменский манат</div>
+                  <div class="calc__currency__sign">TMT</div>
+              </div>
+              
+              <div class="calc__currency__row" id="NOK">
+                  <div class="calc__currency__name">Норвежская крона</div>
+                  <div class="calc__currency__sign">NOK</div>
+              </div>
+  
+            </div>
+            <div class="calc__currency__column  ">
+  
+              <div class="calc__currency__row" id="PLN">
+                  <div class="calc__currency__name">Польский злотый</div>
+                  <div class="calc__currency__sign">PLN</div>
+              </div>
+  
+              <div class="calc__currency__row" id="SGD">
+                  <div class="calc__currency__name">Сингапурский доллар</div>
+                  <div class="calc__currency__sign">SGD</div>
+              </div>
+              
+              <div class="calc__currency__row" id="TJS">
+                  <div class="calc__currency__name">Таджикский сомони</div>
+                  <div class="calc__currency__sign">TJS</div>
+              </div>
+              
+              <div class="calc__currency__row" id="TRY">
+                  <div class="calc__currency__name">Турецкая лира</div>
+                  <div class="calc__currency__sign">TRY</div>
+              </div>
+              
+              <div class="calc__currency__row" id="UZS">
+                  <div class="calc__currency__name">Узбекский сум</div>
+                  <div class="calc__currency__sign">UZS</div>
+              </div>
+              
+              <div class="calc__currency__row" id="UAH">
+                  <div class="calc__currency__name">Украинская гривна</div>
+                  <div class="calc__currency__sign">UAH</div>
+              </div>
+              
+              <div class="calc__currency__row" id="CZK">
+                  <div class="calc__currency__name">Чешская крона</div>
+                  <div class="calc__currency__sign">CZK</div>
+              </div>
+              
+              <div class="calc__currency__row" id="SEK">
+                  <div class="calc__currency__name">Шведская крона</div>
+                  <div class="calc__currency__sign">SEK</div>
+              </div>
+              
+              <div class="calc__currency__row" id="CHF">
+                  <div class="calc__currency__name">Швейцарский франк</div>
+                  <div class="calc__currency__sign">CHF</div>
+              </div>
+              
+              <div class="calc__currency__row" id="ZAR">
+                  <div class="calc__currency__name">Южноафриканский рэнд</div>
+                  <div class="calc__currency__sign">ZAR</div>
+              </div>
+              
+              <div class="calc__currency__row" id="JPY">
+                  <div class="calc__currency__name">Японская иена</div>
+                  <div class="calc__currency__sign">JPY</div>
+              </div>
+  
+            </div>
+ 
+          </div>
+      </div>
+
+
+
+   </body>
+</html>
